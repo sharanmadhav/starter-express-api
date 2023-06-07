@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 app.all('/', (req, res) => {
-    console.log("Just got a request!",req.body)
-    res.send('Yo!')
+    const requestBody = req.body;
+  res.send(requestBody);
 })
 app.listen(process.env.PORT || 3000)
