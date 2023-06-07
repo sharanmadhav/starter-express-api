@@ -14,16 +14,18 @@ app.all('/', (req, res) => {
             "BCDE-9012-FGHI-3456",
             "MNOP-3456-QRST-7890",
             "WXYZ-7890-1234-5678"];
+    var responsebody={
+    check:false
+    };
     if(authKey){
-        if(keyList.includes(authKey.trim()){
-           res.send(true)
+        if(keyList.includes(authKey.trim())){
+           responsebody.check=true;
         }
         else{
-            res.send(false);
+            responsebody.check=false;
         }
     }
-    else{
-        res.send(false);
-    }
+    res.send(responsebody);
 })
 app.listen(process.env.PORT || 3000)
+
